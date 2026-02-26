@@ -1,0 +1,55 @@
+# AI 기반 몰입 관리 솔루션 개발 계획
+
+Stitch 디자인을 기반으로 '바이브 코딩'과 'Zero Ops'를 지향하는 에이전틱 웹 앱을 개발합니다.
+
+## 사용자 검토 필요 항목
+> [!IMPORTANT]
+> - **Edge AI 연동:** Google MediaPipe를 사용하여 브라우저에서 직접 자세를 분석합니다. 카메라 권한 허용이 필요합니다.
+> - **데이터 처리:** 영상 데이터는 서버로 전송되지 않으며 메모리에서 즉시 처리 후 파기됩니다.
+
+## 제안된 변경 사항
+
+### [Project Core]
+프로젝트 기반 구조를 수동으로 구축하여 최적의 개발 환경을 제공합니다.
+
+#### [NEW] [package.json](file:///C:/Project/AI%20%EA%B8%B0%EB%B0%98%20%EB%AA%B0%EC%9E%85%20%EA%B4%80%EB%A6%AC%20%EC%86%94%EB%A3%A8%EC%85%98/package.json)
+필요한 라이브러리(firebase, @mediapipe/pose, vite 등) 정의
+
+#### [NEW] [index.html](file:///C:/Project/AI%20%EA%B8%B0%EB%B0%98%20%EB%AA%B0%EC%9E%85%20%EA%B4%80%EB%A6%AC%20%EC%86%94%EB%A3%A8%EC%85%98/index.html)
+SPA(Single Page Application) 구조의 메인 엔트리
+
+#### [NEW] [src/main.ts](file:///C:/Project/AI%20%EA%B8%B0%EB%B0%98%20%EB%AA%B0%EC%9E%85%20%EA%B4%80%EB%A6%AC%20%EC%86%94%EB%A3%A8%EC%85%98/src/main.ts)
+라우팅 및 애플리케이션 상태 관리
+
+---
+
+### [AI Engine]
+#### [NEW] [src/engine/poseEngine.ts](file:///C:/Project/AI%20%EA%B8%B0%EB%B0%98%20%EB%AA%B0%EC%9E%85%20%EA%B4%80%EB%A6%AC%20%EC%86%94%EB%A3%A8%EC%85%98/src/engine/poseEngine.ts)
+MediaPipe Pose 솔루션을 활용한 실시간 자세 분석 및 'STAI' 지수 산출
+
+---
+
+### [Services]
+#### [NEW] [src/services/firebase.ts](file:///C:/Project/AI%20%EA%B8%B0%EB%B0%98%20%EB%AA%B0%EC%9E%85%20%EA%B4%80%EB%A6%AC%20%EC%86%94%EB%A3%A8%EC%85%98/src/services/firebase.ts)
+인증 및 Firestore 실시간 랭킹 연동
+
+#### [NEW] [src/services/paypal.ts](file:///C:/Project/AI%20%EA%B8%B0%EB%B0%98%20%EB%AA%B0%EC%9E%85%20%EA%B4%80%EB%A6%AC%20%EC%86%94%EB%A3%A8%EC%85%98/src/services/paypal.ts)
+PayPal 구독 결제 로직
+
+---
+
+### [UI Components]
+Stitch 디자인을 기반으로 프리미엄 다크 모드 UI 구현
+
+#### [NEW] [src/style.css](file:///C:/Project/AI%20%EA%B8%B0%EB%B0%98%20%EB%AA%B0%EC%9E%85%20%EA%B4%80%EB%A6%AC%20%EC%86%94%EB%A3%A8%EC%85%98/src/style.css)
+Glassmorphism 및 미세 애니메이션이 포함된 전역 스타일
+
+## 검증 계획
+
+### 자동 테스트
+- `npm run build`를 통한 빌드 성공 여 확인
+- Firebase MCP 도구를 사용하여 데이터 정합성 확인
+
+### 수동 확인
+- 브라우저에서 웹캠 연동 및 자세 인식(타이머 중지/시작) 테스트
+- 리더보드 가상 데이터 업데이트 확인

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="dark" lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>바디 더블링 가상 공부방</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#13ec80",
+            "background-light": "#f6f8f7",
+            "background-dark": "#102219",
+          },
+          fontFamily: {
+            "display": ["Space Grotesk", "Noto Sans KR"],
+            "sans": ["Noto Sans KR", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style type="text/tailwindcss">
+    .glass {
+            background: rgba(19, 236, 128, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(19, 236, 128, 0.1);
+        }
+        .focus-aura-high {
+            box-shadow: 0 0 15px rgba(19, 236, 128, 0.4);
+        }
+        .focus-aura-med {
+            box-shadow: 0 0 15px rgba(250, 204, 21, 0.3);
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+
+<body
+  class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col overflow-x-hidden">
+  <header
+    class="flex items-center justify-between p-4 sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+    <button
+      class="flex items-center justify-center p-2 rounded-full hover:bg-slate-200 dark:hover:bg-primary/10 transition-colors">
+      <span class="material-symbols-outlined text-slate-900 dark:text-slate-100">arrow_back_ios_new</span>
+    </button>
+    <div class="flex flex-col items-center">
+      <h1 class="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100 uppercase text-[10px] opacity-60">
+        세션 활성 중</h1>
+      <h2 class="text-xl font-bold text-primary">가상 집중 공부방</h2>
+    </div>
+    <button
+      class="flex items-center justify-center p-2 rounded-full hover:bg-slate-200 dark:hover:bg-primary/10 transition-colors">
+      <span class="material-symbols-outlined text-slate-900 dark:text-slate-100">settings</span>
+    </button>
+  </header>
+  <main class="flex-1 overflow-y-auto px-4 pb-24">
+    <div class="flex gap-3 my-6">
+      <div class="flex-1 glass rounded-xl p-4 flex flex-col gap-1 border-primary/20">
+        <p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">나의 STAI 지수</p>
+        <div class="flex items-baseline gap-2">
+          <span class="text-2xl font-bold text-slate-900 dark:text-slate-100">0.94</span>
+          <span class="text-primary text-xs font-bold">최고조</span>
+        </div>
+        <div class="w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-full mt-2 overflow-hidden">
+          <div class="bg-primary h-full w-[94%]"></div>
+        </div>
+      </div>
+      <div class="flex-1 glass rounded-xl p-4 flex flex-col gap-1 border-primary/20">
+        <p class="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">공부방 분위기</p>
+        <div class="flex items-baseline gap-2">
+          <span class="text-2xl font-bold text-slate-900 dark:text-slate-100">높음</span>
+          <span class="text-primary text-xs font-bold">+5%</span>
+        </div>
+        <div class="flex gap-1 mt-2">
+          <div class="h-1 flex-1 bg-primary rounded-full"></div>
+          <div class="h-1 flex-1 bg-primary rounded-full"></div>
+          <div class="h-1 flex-1 bg-primary rounded-full"></div>
+          <div class="h-1 flex-1 bg-primary/20 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="font-bold text-lg">바디 더블링 현황</h3>
+      <span class="text-xs text-primary bg-primary/10 px-2 py-1 rounded-full font-bold">라이브</span>
+    </div>
+    <div class="grid grid-cols-3 gap-4">
+      <div class="flex flex-col items-center gap-2 group">
+        <div class="relative w-20 h-20 rounded-full glass border-2 border-primary focus-aura-high p-1">
+          <div class="w-full h-full rounded-full bg-cover bg-center overflow-hidden"
+            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD5WaZxDU5e6NUYCzT-hkZ04cg3zndxF5lo1Shr_KMpk3b1xDs56OeVBzqiPhQuz9az9XakQLXg6G2QEHNamLZYGo8_LKNFdKq1qN34YW5Cn3sA6N0wwM0UjZs-AGtPxKfF1Pgu3Bh5-B26wovmFYIUiYhxrf2LYyD_yypx84PubEfumw93pWq2XeWuRIDxkzHtVnRRZwBQ6ORPEsxgGQ2EDOD18dwjNsoM5EbLj801BhHVwNm8YOtxA-V5ITas0DMloLWJSjU13iD0')">
+          </div>
+          <div
+            class="absolute -bottom-1 -right-1 bg-primary text-background-dark text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase">
+            나</div>
+        </div>
+        <p class="text-xs font-medium text-slate-900 dark:text-slate-100 opacity-80">Alex</p>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <div class="relative w-20 h-20 rounded-full glass border-2 border-primary/40 focus-aura-high p-1">
+          <div class="w-full h-full rounded-full bg-cover bg-center grayscale opacity-80 overflow-hidden"
+            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuANNTyix0sxxekY-K0SeFFu2lwXTVYMgXofLeZ-7cJd5UhjTO3RDYpNd5a70L10X1g_5Or8OS1Y7WZKY--WGnatsd1vSf5iO5Q4UovZH5Rv0D8QPkj0Z6F4e1m722vPTmeOisX0tXjEoy6smv1hNKFT25j_Le6sEzG4jb7BZ3SUi9-3EyM4VCWv9mKvQeTjjxFHdVjhySWf_s0mQx3jLnXJxdHOyGJ0SPkBcVV-SnGcQQ3O8y9WC46kTuXE9q4Jmkmf3BJLrtXSf3wz')">
+          </div>
+        </div>
+        <p class="text-xs font-medium text-slate-900 dark:text-slate-100 opacity-60">Jordan</p>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <div class="relative w-20 h-20 rounded-full glass border-2 border-yellow-400/40 focus-aura-med p-1">
+          <div class="w-full h-full rounded-full bg-cover bg-center grayscale opacity-80 overflow-hidden"
+            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAReSVFqMNX5t70uYbxTB8yttEimmkME5FzguhUxKvvlFcnJY1Ay0LXS1v-YPpxhNqKzNOFeUpnNUt3G6k-b8IKoluRLnoQk0-r5FUbmyV2uV13qBIdnjAXTcYVUCQzvFVazPl0awPy4XKNrROUDxzv7VxHHwGxcCAwvXcXmGPvQGt2d5Cg9NWp2aNYB04se_C3eE8E8jjijKg0cTYW4X-27YuzTlMg2Im1zjEjOA-Sp7GUUFFIZ659gvyTEmrp77qFTE7jcEmCDQBm')">
+          </div>
+        </div>
+        <p class="text-xs font-medium text-slate-900 dark:text-slate-100 opacity-60">Sam</p>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <div class="relative w-20 h-20 rounded-full glass border-2 border-primary/40 focus-aura-high p-1">
+          <div class="w-full h-full rounded-full bg-cover bg-center grayscale opacity-80 overflow-hidden"
+            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDn_YdE_c8AtSlewGnnBMaG8EWFlpVseu0mnhu2vaNarP7A3ryWYG3YhQaMOkIEBGxb5lDKyuDHMVqw12BYGnoMzzh-z9s3pCbvCYEyK_ibtiXVKf1mlBWn199AsgnDuASehFZnsoAD8ynxkaAh3KNr6jAAfTqD9MqdsWjtBuabClun0yhYsyeEUzch3qq09I9IHtpoMiiI00Bc7K2ufI4hwKOu5z3Q2NfaPvHIzab6ISMR7JJqtYIPdu99a-3AID1nuPSAktyRr9aP')">
+          </div>
+        </div>
+        <p class="text-xs font-medium text-slate-900 dark:text-slate-100 opacity-60">Casey</p>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <div class="relative w-20 h-20 rounded-full glass border-2 border-primary/40 focus-aura-high p-1">
+          <div class="w-full h-full rounded-full bg-cover bg-center grayscale opacity-80 overflow-hidden"
+            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDNBz8vhYFmMvXyMO80Tk44il7HReg5XiWykLvSK8K5DprGi5aTKYIPxT30pDOPyyfNFSJyRy-GLoTDLeYtBeD4ZARsdsKM_NbDrynCetwgKTTJBmY07YLguCI_QFmrOHCFSNkyR-HO7_1M2j_P0YbRAdMi9noOWEuyxSS4sASAdas6VRNcGKdnL9Zkd2l-SNe_nbSsCgiLeFoAercz7xt4BJFJ_WvPCISQu1jzwToLp1Wc03P3Pw25pylm_HdGKBQi8Qlo7zT24ex7')">
+          </div>
+        </div>
+        <p class="text-xs font-medium text-slate-900 dark:text-slate-100 opacity-60">Taylor</p>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <div class="relative w-20 h-20 rounded-full glass border-2 border-slate-500/20 p-1">
+          <div class="w-full h-full rounded-full bg-cover bg-center grayscale opacity-40 overflow-hidden"
+            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDkn2Ivp30xRzQtXWLsJtaB3x0x91J-_UUjl3FfTgnqX8NjcMbKMqLEVD2PrrJfncLVfDTmHgFywg0eeCVTmO41MAOopMGz3bIprXNbWaom6L5QXcuKXWUzP8shsC2vA9LyTezydDh1IdCbnxo8_Yv0ph6j8zSywKPPdcZO2_pas3699aSjnS1fdt4xq507i2GZaBw2eUAYDUALLZ4T5CBZRdpINCLfnNs5HImbiv3TESyhQv-Rwc2mBFh63A5ACBfdgzqnnZF0JsDl')">
+          </div>
+          <div class="absolute top-1 right-1 w-2 h-2 bg-slate-500 rounded-full"></div>
+        </div>
+        <p class="text-xs font-medium text-slate-900 dark:text-slate-100 opacity-40">Morgan</p>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <div class="w-20 h-20 rounded-full border-2 border-dashed border-primary/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary/20 scale-150">add</span>
+        </div>
+        <p class="text-[10px] font-medium text-primary/30 uppercase tracking-tighter">친구 초대</p>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <div class="relative w-20 h-20 rounded-full glass border-2 border-primary/40 focus-aura-high p-1">
+          <div class="w-full h-full rounded-full bg-cover bg-center grayscale opacity-80 overflow-hidden"
+            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCeYhSnus44IEk94Lo58hJEnTzQQCGfYbmeeuvz5Mb5xKJSoELJdXkxRWxG6dmrXniQtsnRpwSbQ6xJ5oy0WtVqt6Q0cv8mDRGSNAyF8GFgOHWsxDLTZoxtYIiFgLnNstn4MMC_ijD7wxvXhISnFDaX6mzau9yZM998TFQXbusJWtviTsE0QZ8riM-pX7RUHRoKXKBJHrUEdYH3Ut707Rc62_Xnb-ajGb5PLfjIfl36-zq2xdqsJra4Sm8woGvkK35825zOVUeBkr8q')">
+          </div>
+        </div>
+        <p class="text-xs font-medium text-slate-900 dark:text-slate-100 opacity-60">Devin</p>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <div class="relative w-20 h-20 rounded-full glass border-2 border-primary/40 focus-aura-high p-1">
+          <div class="w-full h-full rounded-full bg-cover bg-center grayscale opacity-80 overflow-hidden"
+            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCqIbws7sm2-wh_Dg9NiikFg3yfxs78GeLiwzjRRBqRGDFi8aBLORMcSnYGqheTtSbeovdpyPyMEgqbDZigd9jm3Mxq3ZkNCevd5CUpKj6na-0KeeZfhRdc-wMPc7wZfQjtFZF_Ob1eKEwbXOpIOTM09yyfjmvj5_c5saH1KS5Im9zASsysLUqPtXNmOa7M7onNCHb35MmIr7CRZtrNPUlW11ICIyXnFs7eUNWbt890mTjcxtIqqQaM77cYHntlRJTcNXvwdJzdvJ3m')">
+          </div>
+        </div>
+        <p class="text-xs font-medium text-slate-900 dark:text-slate-100 opacity-60">Riley</p>
+      </div>
+    </div>
+    <div class="mt-12 flex justify-center">
+      <div class="glass px-5 py-3 rounded-full flex items-center gap-3 border-primary/30">
+        <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+        <p class="text-sm font-medium text-slate-900 dark:text-slate-100">
+          <span class="opacity-60">시스템:</span> 현재 42명이 함께 몰입하고 있습니다
+        </p>
+      </div>
+    </div>
+  </main>
+  <nav class="fixed bottom-0 left-0 right-0 glass border-t border-primary/10 px-6 pb-8 pt-4 z-50">
+    <div class="flex justify-between items-center max-w-md mx-auto">
+      <a class="flex flex-col items-center gap-1 text-primary" href="#">
+        <span class="material-symbols-outlined font-variation-fill">grid_view</span>
+        <span class="text-[10px] font-bold uppercase">공부방</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+        <span class="material-symbols-outlined">analytics</span>
+        <span class="text-[10px] font-bold uppercase">통계</span>
+      </a>
+      <div class="relative -top-10">
+        <button
+          class="w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/20 border-4 border-background-dark">
+          <span class="material-symbols-outlined text-background-dark font-bold text-3xl">play_arrow</span>
+        </button>
+      </div>
+      <a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+        <span class="material-symbols-outlined">group</span>
+        <span class="text-[10px] font-bold uppercase">친구</span>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+        <span class="material-symbols-outlined">person</span>
+        <span class="text-[10px] font-bold uppercase">프로필</span>
+      </a>
+    </div>
+  </nav>
+  <div class="fixed inset-0 pointer-events-none -z-10">
+    <div class="absolute top-1/4 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-[100px]"></div>
+    <div class="absolute bottom-1/4 -right-20 w-80 h-80 bg-primary/10 rounded-full blur-[120px]"></div>
+  </div>
+
+</body>
+
+</html>
