@@ -12,7 +12,7 @@ class App {
 
   constructor() {
     this.appElement = document.querySelector<HTMLDivElement>('#app')!
-    window.addEventListener('popstate', () => this.handleRoute())
+    window.addEventListener('hashchange', () => this.handleRoute())
     this.initApp()
   }
 
@@ -25,17 +25,26 @@ class App {
     // 전역 클릭 이벤트를 통한 라우팅 처리 (Zero Ops UX)
     document.body.addEventListener('click', (e) => {
       const target = (e.target as HTMLElement).closest('a')
-      if (target && target.href && target.href.startsWith(window.location.origin)) {
-        e.preventDefault()
-        this.navigateTo(target.pathname)
+      if (target && target.getAttribute('href')?.startsWith('#/')) {
+        // 해시 링크는 기본 브라우저 동작(hashchange 발생)을 따르도록 함
       }
     })
+
+    // 초기 로드 시 해시가 없거나 잘못된 경로면 기본값 설정
+    if (!window.location.hash || window.location.hash === '#') {
+      window.location.hash = '#/'
+    }
 
     this.handleRoute()
   }
 
   private handleRoute() {
-    const path = window.location.pathname
+    const hash = window.location.hash || '#/'
+    const path = hash.replace(/^#/, '') // '#' 제거하여 경로 추출
+
+    // 페이지 전환 시 스크롤을 최상단으로 이동 (UX 보완)
+    window.scrollTo(0, 0)
+
     this.appElement.innerHTML = ''
 
     switch (path) {
@@ -55,7 +64,9 @@ class App {
         renderSubscriptionScreen(this.appElement)
         break
       default:
-        renderTimerScreen(this.appElement)
+        // 정의되지 않은 경로는 타이머(홈)로 리다이렉트
+        window.location.hash = '#/'
+        return
     }
 
     this.updateNavStatus(path)
@@ -66,7 +77,8 @@ class App {
     const navLinks = document.querySelectorAll('a[href]')
     navLinks.forEach(link => {
       const href = link.getAttribute('href')
-      const isMatch = href === path || (path === '/' && href === '/')
+      // href가 '#/path' 형식이므로 path와 비교
+      const isMatch = href === `#${path}` || (path === '/' && href === '#/')
 
       // 텍스트 색상 및 아이콘 스타일 조정 (font-variation-fill)
       if (isMatch) {
@@ -84,8 +96,7 @@ class App {
   }
 
   navigateTo(path: string) {
-    window.history.pushState({}, '', path)
-    this.handleRoute()
+    window.location.hash = `#${path}`
   }
 }
 

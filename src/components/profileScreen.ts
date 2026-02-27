@@ -2,7 +2,7 @@ export const renderProfileScreen = (container: HTMLElement) => {
   container.innerHTML = `
     <div class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
       <header class="sticky top-0 z-50 flex items-center justify-between px-6 py-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200/10">
-        <button class="flex items-center justify-center size-10 rounded-full bg-slate-200/50 dark:bg-primary/10 text-slate-900 dark:text-primary" onclick="location.pathname='/'; window.dispatchEvent(new PopStateEvent('popstate'))">
+        <button class="flex items-center justify-center size-10 rounded-full bg-slate-200/50 dark:bg-primary/10 text-slate-900 dark:text-primary" onclick="window.location.hash='#/'">
           <span class="material-symbols-outlined">arrow_back_ios_new</span>
         </button>
         <h1 class="text-xl font-bold tracking-tight">사용자 프로필 등록</h1>
@@ -49,7 +49,7 @@ export const renderProfileScreen = (container: HTMLElement) => {
         </form>
 
         <!-- Premium Membership Link -->
-        <a href="/subscription" class="mt-8 block p-5 rounded-2xl bg-gradient-to-r from-primary/20 via-primary/10 to-transparent border border-primary/30 group hover:border-primary transition-all duration-300">
+        <a href="#/subscription" class="mt-8 block p-5 rounded-2xl bg-gradient-to-r from-primary/20 via-primary/10 to-transparent border border-primary/30 group hover:border-primary transition-all duration-300">
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-4">
               <div class="size-12 rounded-xl bg-primary flex items-center justify-center text-background-dark shadow-[0_0_15px_rgba(19,236,128,0.3)]">
@@ -77,7 +77,7 @@ export const renderProfileScreen = (container: HTMLElement) => {
         </div>
       </main>
       <footer class="p-6 bg-gradient-to-t from-background-light dark:from-background-dark to-transparent">
-        <button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-bold text-lg h-16 rounded-2xl shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2" onclick="location.pathname='/'; window.dispatchEvent(new PopStateEvent('popstate'))">
+        <button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-bold text-lg h-16 rounded-2xl shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2" onclick="window.location.hash='#/'">
           <span>설정 저장 및 시작</span>
           <span class="material-symbols-outlined">bolt</span>
         </button>

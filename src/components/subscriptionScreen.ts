@@ -4,7 +4,7 @@ export const renderSubscriptionScreen = (container: HTMLElement) => {
   container.innerHTML = `
     <div class="relative flex h-full min-h-screen w-full max-w-[430px] flex-col bg-background-light dark:bg-background-dark overflow-x-hidden shadow-2xl mx-auto text-slate-900 dark:text-slate-100">
       <div class="flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-50 p-4 justify-between border-b border-primary/10">
-        <div class="text-slate-900 dark:text-slate-100 flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-primary/10 transition-colors cursor-pointer" onclick="location.pathname='/profile'; window.dispatchEvent(new PopStateEvent('popstate'))">
+        <div class="text-slate-900 dark:text-slate-100 flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-primary/10 transition-colors cursor-pointer" onclick="window.location.hash='#/profile'">
           <span class="material-symbols-outlined">arrow_back</span>
         </div>
         <h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center font-display">

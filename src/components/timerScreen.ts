@@ -101,25 +101,25 @@ export const renderTimerScreen = (container: HTMLElement) => {
       <!-- Bottom Nav -->
       <div class="mt-auto border-t border-slate-200 dark:border-white/10 bg-background-light dark:bg-[#0d1b26] px-4 pb-8 pt-2">
         <div class="flex gap-2">
-          <a class="flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-primary" href="/" onclick="event.preventDefault(); window.history.pushState({}, '', '/'); window.dispatchEvent(new PopStateEvent('popstate'))">
+          <a class="flex flex-1 flex-col items-center justify-end gap-1 rounded-full text-primary" href="#/">
             <div class="flex h-8 items-center justify-center">
               <span class="material-symbols-outlined font-variation-fill">timer</span>
             </div>
             <p class="text-[10px] font-bold tracking-tight">몰입</p>
           </a>
-          <a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="/leaderboard" onclick="event.preventDefault(); window.history.pushState({}, '', '/leaderboard'); window.dispatchEvent(new PopStateEvent('popstate'))">
+          <a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="#/leaderboard">
             <div class="flex h-8 items-center justify-center">
               <span class="material-symbols-outlined">emoji_events</span>
             </div>
             <p class="text-[10px] font-bold tracking-tight">랭킹</p>
           </a>
-          <a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="/study-room" onclick="event.preventDefault(); window.history.pushState({}, '', '/study-room'); window.dispatchEvent(new PopStateEvent('popstate'))">
+          <a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="#/study-room">
             <div class="flex h-8 items-center justify-center">
               <span class="material-symbols-outlined">groups</span>
             </div>
             <p class="text-[10px] font-bold tracking-tight">공부방</p>
           </a>
-          <a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="/profile" onclick="event.preventDefault(); window.history.pushState({}, '', '/profile'); window.dispatchEvent(new PopStateEvent('popstate'))">
+          <a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="#/profile">
             <div class="flex h-8 items-center justify-center">
               <span class="material-symbols-outlined">account_circle</span>
             </div>
@@ -211,8 +211,7 @@ export const renderTimerScreen = (container: HTMLElement) => {
     await saveSession(userId, seconds, parseInt(scoreDisplay.textContent || '0'));
     alert(`고생하셨습니다! 총 ${seconds}초 동안 몰입하셨습니다.`);
 
-    // 글로벌 라우팅 활용
-    window.history.pushState({}, '', '/leaderboard');
-    window.dispatchEvent(new PopStateEvent('popstate'));
+    // 글로벌 라우팅 활용 (Hash 변경 인터페이스 사용)
+    window.location.hash = '#/leaderboard';
   });
 };

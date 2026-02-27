@@ -2,7 +2,7 @@ export const renderStudyRoomScreen = (container: HTMLElement) => {
   container.innerHTML = `
     <div class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col overflow-x-hidden">
       <header class="flex items-center justify-between p-4 sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
-        <button class="flex items-center justify-center p-2 rounded-full hover:bg-slate-200 dark:hover:bg-primary/10 transition-colors" onclick="location.pathname='/'; window.dispatchEvent(new PopStateEvent('popstate'))">
+        <button class="flex items-center justify-center p-2 rounded-full hover:bg-slate-200 dark:hover:bg-primary/10 transition-colors" onclick="window.location.hash='#/'">
           <span class="material-symbols-outlined text-slate-900 dark:text-slate-100">arrow_back_ios_new</span>
         </button>
         <div class="flex flex-col items-center text-center">
@@ -90,16 +90,16 @@ export const renderStudyRoomScreen = (container: HTMLElement) => {
 
       <nav class="fixed bottom-0 left-0 right-0 timer-blur bg-background-light/90 dark:bg-background-dark/90 border-t border-primary/10 px-6 pb-8 pt-4 z-50">
         <div class="flex justify-between items-center max-w-md mx-auto">
-          <a class="flex flex-col items-center gap-1 text-primary" href="/study-room">
+          <a class="flex flex-col items-center gap-1 text-primary" href="#/study-room">
             <span class="material-symbols-outlined font-variation-fill">grid_view</span>
             <span class="text-[10px] font-bold uppercase">공부방</span>
           </a>
-          <a class="flex flex-col items-center gap-1 text-slate-400" href="/leaderboard" onclick="event.preventDefault(); window.history.pushState({}, '', '/leaderboard'); window.dispatchEvent(new PopStateEvent('popstate'))">
+          <a class="flex flex-col items-center gap-1 text-slate-400" href="#/leaderboard">
             <span class="material-symbols-outlined">emoji_events</span>
             <span class="text-[10px] font-bold uppercase">랭킹</span>
           </a>
           <div class="relative -top-10">
-            <button class="w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/20 border-4 border-background-dark" onclick="location.pathname='/'; window.dispatchEvent(new PopStateEvent('popstate'))">
+            <button class="w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/20 border-4 border-background-dark" onclick="window.location.hash='#/'">
               <span class="material-symbols-outlined text-background-dark font-bold text-3xl">play_arrow</span>
             </button>
           </div>
@@ -107,7 +107,7 @@ export const renderStudyRoomScreen = (container: HTMLElement) => {
             <span class="material-symbols-outlined">group</span>
             <span class="text-[10px] font-bold uppercase">친구</span>
           </a>
-          <a class="flex flex-col items-center gap-1 text-slate-400" href="/profile" onclick="event.preventDefault(); window.history.pushState({}, '', '/profile'); window.dispatchEvent(new PopStateEvent('popstate'))">
+          <a class="flex flex-col items-center gap-1 text-slate-400" href="#/profile">
             <span class="material-symbols-outlined">person</span>
             <span class="text-[10px] font-bold uppercase">프로필</span>
           </a>

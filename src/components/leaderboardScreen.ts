@@ -2,7 +2,7 @@ export const renderLeaderboardScreen = (container: HTMLElement) => {
   container.innerHTML = `
     <div class="relative flex min-h-screen w-full flex-col max-w-[430px] mx-auto overflow-x-hidden border-x border-primary/10 shadow-2xl bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
       <div class="sticky top-0 z-20 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md p-4 pb-2 justify-between">
-        <div class="text-slate-900 dark:text-slate-100 flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 cursor-pointer" onclick="location.pathname='/'; window.dispatchEvent(new PopStateEvent('popstate'))">
+        <div class="text-slate-900 dark:text-slate-100 flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 cursor-pointer" onclick="window.location.hash='#/'">
           <span class="material-symbols-outlined">arrow_back</span>
         </div>
         <h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center font-display">
@@ -78,19 +78,19 @@ export const renderLeaderboardScreen = (container: HTMLElement) => {
       <!-- Bottom Nav -->
       <nav class="mt-auto border-t border-primary/10 bg-background-light dark:bg-background-dark px-4 pb-8 pt-2">
         <div class="flex gap-2">
-          <a class="flex flex-1 flex-col items-center justify-center gap-1 py-2 text-slate-500 dark:text-primary/40" href="/" onclick="event.preventDefault(); window.history.pushState({}, '', '/'); window.dispatchEvent(new PopStateEvent('popstate'))">
+          <a class="flex flex-1 flex-col items-center justify-center gap-1 py-2 text-slate-500 dark:text-primary/40" href="#/">
             <span class="material-symbols-outlined">timer</span>
             <p class="text-[10px] font-bold uppercase tracking-wider">몰입</p>
           </a>
-          <a class="flex flex-1 flex-col items-center justify-center gap-1 py-2 text-primary border-t-2 border-primary" href="/leaderboard">
+          <a class="flex flex-1 flex-col items-center justify-center gap-1 py-2 text-primary border-t-2 border-primary" href="#/leaderboard">
             <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">groups</span>
             <p class="text-[10px] font-bold uppercase tracking-wider">라이벌</p>
           </a>
-          <a class="flex flex-1 flex-col items-center justify-center gap-1 py-2 text-slate-500 dark:text-primary/40" href="/study-room" onclick="event.preventDefault(); window.history.pushState({}, '', '/study-room'); window.dispatchEvent(new PopStateEvent('popstate'))">
+          <a class="flex flex-1 flex-col items-center justify-center gap-1 py-2 text-slate-500 dark:text-primary/40" href="#/study-room">
             <span class="material-symbols-outlined">grid_view</span>
             <p class="text-[10px] font-bold uppercase tracking-wider">공부방</p>
           </a>
-          <a class="flex flex-1 flex-col items-center justify-center gap-1 py-2 text-slate-500 dark:text-primary/40" href="/profile" onclick="event.preventDefault(); window.history.pushState({}, '', '/profile'); window.dispatchEvent(new PopStateEvent('popstate'))">
+          <a class="flex flex-1 flex-col items-center justify-center gap-1 py-2 text-slate-500 dark:text-primary/40" href="#/profile">
             <span class="material-symbols-outlined">person</span>
             <p class="text-[10px] font-bold uppercase tracking-wider">프로필</p>
           </a>
