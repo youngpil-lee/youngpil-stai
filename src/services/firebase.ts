@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore";
 
 // Firebase 설정값 (사용자 프로젝트 정보로 대체 필요)
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
+    apiKey: "AIzaSyDUrqlHHHQ1eSkFr3Qu6a8QwOahnzbo8Yg",
     authDomain: "ai-focus-solution.firebaseapp.com",
     projectId: "ai-focus-solution",
     storageBucket: "ai-focus-solution.appspot.com",
@@ -12,9 +12,20 @@ const firebaseConfig = {
     appId: "YOUR_APP_ID"
 };
 
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getFirestore(app);
+let app;
+let auth: any;
+let db: any;
+
+try {
+    app = initializeApp(firebaseConfig);
+    auth = getAuth(app);
+    db = getFirestore(app);
+} catch (error) {
+    console.error("Firebase initialization failed:", error);
+    // 더미 객체 또는 null을 제공하여 앱 중단 방지
+}
+
+export { auth, db };
 
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 

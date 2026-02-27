@@ -17,10 +17,16 @@ class App {
   }
 
   async initApp() {
-    // Firebase 익명 로그인 연동
-    const { auth } = await import('./services/firebase')
-    const { signInAnonymously } = await import('firebase/auth')
-    await signInAnonymously(auth).catch(console.error)
+    // Firebase 익명 로그인 연동 (실패해도 앱 UI는 뜨도록 처리)
+    try {
+      const { auth } = await import('./services/firebase')
+      if (auth) {
+        const { signInAnonymously } = await import('firebase/auth')
+        await signInAnonymously(auth).catch(err => console.warn("Firebase Auth failed:", err))
+      }
+    } catch (e) {
+      console.warn("Firebase module load failed:", e)
+    }
 
     // 전역 클릭 이벤트를 통한 라우팅 처리 (Zero Ops UX)
     document.body.addEventListener('click', (e) => {
